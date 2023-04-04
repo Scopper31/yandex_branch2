@@ -54,9 +54,6 @@ WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
 WEBHOOK_SSL_CERT = './webhook_cert.pem'
 WEBHOOK_SSL_PRIV = './webhook_pkey.pem'
 
-WEBAPP_HOST = 'localhost'
-WEBAPP_PORT = 80
-
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=API_TOKEN)

@@ -46,14 +46,16 @@ PAYMENTS_TOKEN = '381764678:TEST:51884'
 API_TOKEN = '6064341811:AAFJlrN3bV8fHUuL0eO_VbZcKerBH2cH9Io'
 
 
+WEBHOOK_HOST = 'https://80.90.189.120'
+WEBHOOK_URL_PATH = '/webhook'
+WEBHOOK_PORT = 80
+WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
 
-WEBHOOK_HOST = 'https://your.domain'
-WEBHOOK_PATH = '/path/to/api'
-WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
-
+WEBHOOK_SSL_CERT = './webhook_cert.pem'
+WEBHOOK_SSL_PRIV = './webhook_pkey.pem'
 
 WEBAPP_HOST = 'localhost'
-WEBAPP_PORT = 3001
+WEBAPP_PORT = 80
 
 logging.basicConfig(level=logging.INFO)
 
@@ -686,7 +688,7 @@ async def on_shutdown(dp):
 if __name__ == '__main__':
     start_webhook(
         dispatcher=dp,
-        webhook_path=WEBHOOK_PATH,
+        webhook_path=WEBHOOK_URL,
         on_startup=on_startup,
         on_shutdown=on_shutdown,
         skip_updates=True,

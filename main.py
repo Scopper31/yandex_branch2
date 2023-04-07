@@ -691,6 +691,4 @@ if __name__ == '__main__':
     skip_updates=True,
     host="127.0.0.1",
     port=WEBHOOK_PORT,
-    ssl_cert=WEBHOOK_SSL_CERT,
-    ssl_private_key=WEBHOOK_SSL_PRIV
     )

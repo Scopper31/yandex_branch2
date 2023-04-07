@@ -8,6 +8,7 @@ import threading
 import time
 from io import BytesIO
 
+import aiohttp.web as web
 import openai
 import sql
 import tiktoken

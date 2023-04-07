@@ -10,7 +10,6 @@ from io import BytesIO
 
 import openai
 import sql
-import ssl
 import tiktoken
 from aiogram import Bot, Dispatcher, executor, types, utils
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -686,5 +685,4 @@ async def on_shutdown(dp):
 if __name__ == '__main__':
     start_webhook(dispatcher=dp, webhook_path=WEBHOOK_URL_PATH,
               on_startup=on_startup, on_shutdown=on_shutdown,
-              port=WEBHOOK_PORT, host="0.0.0.0",
-              ssl_context=ssl.SSLContext(ssl.PROTOCOL_SSLv23).load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV))
+              port=WEBHOOK_PORT, host="0.0.0.0")

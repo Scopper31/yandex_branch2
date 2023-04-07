@@ -683,6 +683,10 @@ async def on_shutdown(dp):
 
 
 if __name__ == '__main__':
-    start_webhook(dispatcher=dp, webhook_path=WEBHOOK_URL_PATH,
-              on_startup=on_startup, on_shutdown=on_shutdown,
-              port=WEBHOOK_PORT, host="0.0.0.0")
+    start_webhook(dispatcher=dp,
+                  webhook_path=WEBHOOK_URL_PATH,
+                  on_startup=on_startup,
+                  on_shutdown=on_shutdown,
+                  port=WEBHOOK_PORT,
+                  host='localhost'
+                 )

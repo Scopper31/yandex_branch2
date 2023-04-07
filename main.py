@@ -51,7 +51,7 @@ API_TOKEN = '6064341811:AAFJlrN3bV8fHUuL0eO_VbZcKerBH2cH9Io'
 WEBHOOK_HOST = '1334446-cx16007.tw1.ru'
 WEBHOOK_URL_PATH = '/hook'
 WEBHOOK_PORT = 8443
-WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
+WEBHOOK_URL = f"https://{WEBHOOK_HOST}{WEBHOOK_URL_PATH}"
 SSL_CERT = '/lhope/webhook_cert.pem'
 SSL_PRIV = '/lhope/webhook_pkey.pem'
 
@@ -671,7 +671,7 @@ async def solve(lesson_url, _id):
 
 
 async def on_startup(dp):
-    await bot.set_webhook(WEBHOOK_URL, certificate=open(SSL_CERT, 'rb'))
+    await bot.set_webhook(WEBHOOK_URL)
 
 
 async def on_shutdown(dp):
@@ -681,13 +681,11 @@ async def on_shutdown(dp):
     await dp.storage.wait_closed()
 
     logging.warning('Bye!')
-    
-    
-app = web.Application()
-app.add_routes([web.post(WEBHOOK_PATH, SendMessage(dp))])
 
     
 if __name__ == '__main__':
-    web.run_app(app, host='0.0.0.0', port=WEBHOOK_PORT, on_startup=on_startup,
-    on_shutdown=on_shutdown)
+    dp.register_event_handler(on_startup)
+    app = get_new_configured_app(dp)
+    web.run_app(app, host='0.0.0.0', port=8080)
+
 

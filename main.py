@@ -689,6 +689,6 @@ if __name__ == '__main__':
     on_startup=on_startup,
     on_shutdown=on_shutdown,
     skip_updates=True,
-    host='127.0.0.1',  # listen on localhost, since you're using a reverse proxy
+    host='80.90.189.120',  # listen on localhost, since you're using a reverse proxy
     port=8080,  # use the same port you specified in your server configuration
 )

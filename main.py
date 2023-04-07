@@ -689,4 +689,5 @@ if __name__ == '__main__':
         on_startup=on_startup,
         on_shutdown=on_shutdown,
         skip_updates=True,
+        webhook_url=WEBHOOK_URL,
     )

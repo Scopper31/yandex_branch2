@@ -46,13 +46,13 @@ PAYMENTS_TOKEN = '381764678:TEST:51884'
 API_TOKEN = '6064341811:AAFJlrN3bV8fHUuL0eO_VbZcKerBH2cH9Io'
 
 
+API_TOKEN = '6064341811:AAFJlrN3bV8fHUuL0eO_VbZcKerBH2cH9Io'
 WEBHOOK_HOST = '1334446-cx16007.tw1.ru'
 WEBHOOK_URL_PATH = '/'
-WEBHOOK_PORT = 443
+WEBHOOK_PORT = 8080
 WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
-
-WEBHOOK_SSL_CERT = '/lhope/webhook_cert.pem'
-WEBHOOK_SSL_PRIV = '/lhope/webhook_pkey.pem'
+WEBHOOK_SSL_CERT = './webhook_cert.pem'
+WEBHOOK_SSL_PRIV = './webhook_pkey.pem'
 
 logging.basicConfig(level=logging.INFO)
 
@@ -689,6 +689,8 @@ if __name__ == '__main__':
     on_startup=on_startup,
     on_shutdown=on_shutdown,
     skip_updates=True,
-    host='1334446-cx16007.tw1.ru',  # listen on localhost, since you're using a reverse proxy
-    port=8080,  # use the same port you specified in your server configuration
-)
+    host="127.0.0.1",
+    port=WEBHOOK_PORT,
+    ssl_cert=WEBHOOK_SSL_CERT,
+    ssl_private_key=WEBHOOK_SSL_PRIV
+    )

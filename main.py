@@ -46,7 +46,7 @@ PAYMENTS_TOKEN = '381764678:TEST:51884'
 API_TOKEN = '6064341811:AAFJlrN3bV8fHUuL0eO_VbZcKerBH2cH9Io'
 
 
-WEBHOOK_HOST = 'https://80.90.189.120'
+WEBHOOK_HOST = '80.90.189.120'
 WEBHOOK_URL_PATH = '/webhook'
 WEBHOOK_PORT = 80
 WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
@@ -689,6 +689,4 @@ if __name__ == '__main__':
         on_startup=on_startup,
         on_shutdown=on_shutdown,
         skip_updates=True,
-        host=WEBAPP_HOST,
-        port=WEBAPP_PORT,
     )
